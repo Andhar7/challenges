@@ -71,17 +71,7 @@ struct ClaudeView: View {
 
     private var ring: some View {
         ZStack {
-            Circle()
-                .stroke(.white.opacity(0.15), lineWidth: 6)
-            Circle()
-                .trim(from: 0, to: progress)
-                .stroke(ringGradient, style: StrokeStyle(lineWidth: 14, lineCap: .round))
-                .rotationEffect(.degrees(-90))
-            Image(.winner)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 150, height: 150) 
-                .clipShape(.circle)
+            FireworkRing()
         }
         .frame(width: 220, height: 220)
     }
