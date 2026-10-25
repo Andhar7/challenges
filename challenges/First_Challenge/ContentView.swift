@@ -76,6 +76,7 @@ struct ContentView: View {
             
             Spacer()
         }
+        .foregroundStyle(.white)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background{
             LinearGradient(gradient: .init(colors: [ Color(#colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)), Color(#colorLiteral(red: 0.008772685266, green: 0, blue: 0.02698108495, alpha: 1))]), startPoint: .bottom, endPoint: .top)
@@ -93,7 +94,25 @@ extension ContentView {
     @ViewBuilder
     func CardsView(name: String, colour_sf: Color, first_text: String, second_text: String, stroke_card: Color) -> some View {
         
-        RoundedRectangle(cornerRadius: 12.0)
+        VStack(spacing: 24) {
+            Image(systemName: name)
+                .font(.system(size: 33, weight: .heavy))
+                .foregroundStyle(colour_sf)
+            VStack(spacing: 3) {
+                Text(first_text)
+                Text(second_text)
+            }
+            .font(.system(size: 21, weight: .bold, design: .serif))
+            .foregroundStyle(.white)
+        }
+        .frame(maxWidth: .infinity, minHeight: 180)
+        .background(.ultraThinMaterial, in: .rect(cornerRadius: 12))
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(stroke_card, lineWidth: 2)
+        }
+        
+      /*  RoundedRectangle(cornerRadius: 12.0)
             .frame(width: 130, height: 180)
             .background(.ultraThinMaterial, in: .ellipse)
             .overlay(alignment: .center) {
@@ -118,5 +137,6 @@ extension ContentView {
                     .stroke(stroke_card, lineWidth: 2)
                     .shadow(color:  Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 5)
             }
+        */
     }
 }
