@@ -113,6 +113,6 @@ struct FireworkRing: View {
 #Preview {
     FireworkRing()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black)
+        .background(Color(#colorLiteral(red: 0.02925465629, green: 0.01754577458, blue: 0.1250821352, alpha: 1)))
 }
 
